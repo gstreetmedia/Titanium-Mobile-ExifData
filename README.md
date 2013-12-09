@@ -16,10 +16,11 @@ Then when you want the EXIF data of any file (string) or blob (TI.Blob);
 
 Just call either
 
-var data = EXIF.fromPath("thatfullnativepathtoyourfile");
+var data = EXIF.fromPath("thefullnativepathtoyourfile.jpg");
 
 or
 
 var data = EXIF.fromBlob(SomeBlobObject);
 
 
+Hint: the Blob object should be the root object, not SomeBlobObject.media.
