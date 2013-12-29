@@ -621,7 +621,7 @@ EXIF.FileReader = function(filepath) {
 		var value = Ti.Codec.decodeNumber({
 			source : buffer,
 			position : $offset,
-			type : Ti.Codec.TYPE_LONG,
+			type : Ti.Codec.TYPE_INT,
 			byteOrder : byteOrder
 		});
 		if (Ti.Platform.osname == "android") {
