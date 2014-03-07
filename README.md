@@ -6,20 +6,23 @@ A straight up Javascript Class for reading EXIF data from either a filepath or a
 
 Easy to use:
 
-Alloy.Globals.EXIF = require("Exif");
+Alloy.Globals.Exif = require("Exif");
 
 ||
 
-var EXIF = require("Exif");
+var Exif = require("Exif");
 
 Then when you want the EXIF data of any file (string) or blob (TI.Blob);
 
 Just call either
 
-var data = EXIF.fromPath("thefullnativepathtoyourfile.jpg");
+var data = Exif.fromPath("thefullnativepathtoyourfile.jpg");
 
-or
+or if you have the file loaded (e.g. from the Gallery)
 
-var data = EXIF.fromBlob(SomeBlobObject);
+var data = Exif.fromBlob(SomeBlobObject);
 
 
+For nicely formatted output try:
+
+console.log(Exif.pretty(Exif.fromPath("thefullnativepathtoyourfile.jpg")));
