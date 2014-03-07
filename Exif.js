@@ -604,7 +604,7 @@ EXIF.FileReader = function (filePathOrBlob) {
 	this.getShortAt = function (iOffset, bBigEndian) {
 		var iShort = bBigEndian ?
 			(this.getByteAt(iOffset) << 8) + this.getByteAt(iOffset + 1)
-			: (this.getByteAt(iOffset + 1) << 8) + this.getByteAt(iOffset)
+			: (this.getByteAt(iOffset + 1) << 8) + this.getByteAt(iOffset);
 		if (iShort < 0) iShort += 65536;
 		return iShort;
 	};
@@ -641,22 +641,18 @@ EXIF.FileReader = function (filePathOrBlob) {
  * Call this if you have a path (string)
  * @param {String} filepath
  */
-EXIF.fromPath = function (filepathOrBlob) {
-	var filereader = new EXIF.FileReader(filepathOrBlob);
+EXIF.fromPath = function (filePath) {
+	var filereader = new EXIF.FileReader(filePath);
 	var main = new EXIF.main();
 	var data = main.findEXIFinJPEG(filereader);
 	return data;
 };
-/**
- * Call this function to get the EXIF in an Existing Blob
- * @param {Object} blob
- */
 EXIF.fromBlob = function (blob) {
-	if ("media" in blob && blob.media) {
-		return EXIF.fromPath(blob.media);
-	} else {
-		return EXIF.fromPath(blob);
-	}
+	blob = blob.media ? blob.media : blob;
+	var filereader = new EXIF.FileReader(blob);
+	var main = new EXIF.main();
+	var data = main.findEXIFinJPEG(filereader);
+	return data;
 };
 
 
