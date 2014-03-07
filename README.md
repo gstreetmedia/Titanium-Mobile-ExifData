@@ -1,5 +1,5 @@
-TitaniumMobileExifData
-======================
+Titanium Mobile Exif Data
+==========================
 
 A straight up Javascript Class for reading EXIF data from either a filepath or a Blob
 
@@ -14,11 +14,13 @@ var Exif = require("Exif");
 
 Then when you want the EXIF data of any file (string) or blob (TI.Blob);
 
-Just call either
+
+For a filepath (ie nativePath)
 
 var data = Exif.fromPath("thefullnativepathtoyourfile.jpg");
 
-or if you have the file loaded (e.g. from the Gallery)
+
+For a Ti.Blob (e.g. from the Gallery)
 
 var data = Exif.fromBlob(SomeBlobObject);
 
