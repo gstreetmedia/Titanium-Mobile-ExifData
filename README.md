@@ -23,4 +23,3 @@ or
 var data = EXIF.fromBlob(SomeBlobObject);
 
 
-Hint: the Blob object should be the root object, not SomeBlobObject.media.
